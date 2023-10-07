@@ -1,7 +1,7 @@
 body {
     background: linear-gradient(150deg, rgba(205, 58, 255, .3) 0%, rgba(0, 110, 255, .2) 100%);
     background-repeat: no-repeat;
-    min-height: 90vh;
+    min-height: 100vh;
 }
 
 h1 {
