@@ -18,7 +18,8 @@ session_start();
 
 ob_start();
 if($p === "home"){
-    require(Config::$PATH_VIEWS."Home.php");
+    $controller = new \App\Controllers\PartieController;
+    $controller->index();
 }
 if($p === "login"){
     $controller = new \App\Controllers\AccountController;
@@ -27,6 +28,10 @@ if($p === "login"){
 if($p === "signup"){
     $controller = new \App\Controllers\AccountController;
     $controller->signup();
+}
+if($p === "play"){
+    $controller = new \App\Controllers\PartieController;
+    $controller->play();
 }
 $content = ob_get_clean();
 

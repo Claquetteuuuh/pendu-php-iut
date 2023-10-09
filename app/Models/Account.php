@@ -8,6 +8,11 @@ class Account{
     private $username; 
     private $password;
 
+    public function __get($key){
+        $method = 'get' . ucfirst($key);
+        $this->$method();
+    }
+
     public function getUsername(){
         return $this->username;
     }
@@ -16,6 +21,13 @@ class Account{
         return $this->password;
     }
 
+    /**
+    * @return Parties[] 
+    */
+    public function getParties(): array{
+        $parties = App::getDatabase()->query("SELECT * FROM Parties WHERE username1='".$this->getUsername()."' OR username2='". $this->getUsername() . "'", "Partie");
+        return $parties;
+    }
 
     /**
     * @return Account[]
@@ -36,4 +48,5 @@ class Account{
         $new_hash = hash('sha256', $password);
         return $hash == $new_hash;
     }
+
 }
