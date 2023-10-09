@@ -3,8 +3,11 @@
 use \App\Utils;
 use \App\Config;
 
-session_name("game_launched");
-session_start();
+if(!isset($_SESSION["username"])){
+    header("Location: ". Config::$url. "/public/?p=login");
+}
+
+
 if (!isset($_SESSION["mot"]) || $_SESSION["win"] == true) {
     if (!App::getDatabase()) {
         $_SESSION["mot"] = Utils::random_word($filename);
@@ -17,10 +20,10 @@ if (!isset($_SESSION["mot"]) || $_SESSION["win"] == true) {
 } else {
     if (12 - $_SESSION["try"] < 1) {
         // loose
-        App::getDatabase()->query("INSERT INTO parties (mots, erreurs, result) VALUES ('" . $_SESSION['mot'] . "', '" . $_SESSION["try"] . "', 'loose');", Config::$PATH_MODELS."Mots");
-        
+        App::getDatabase()->query("INSERT INTO parties (mots, erreurs, result) VALUES ('" . $_SESSION['mot'] . "', '" . $_SESSION["try"] . "', 'loose');", "Mot");
+
         session_destroy();
-        header("Location: http://localhost/pendu/");
+        header("Location: ". Config::$url. "/public/");
         exit();
     }
 }
@@ -41,6 +44,10 @@ if (!empty($_POST["letter"])) {
 
 ?>
 
+<head>
+    <link rel="stylesheet" href="/pendu-php-iut/public/css/home.css">
+</head>
+
 <h1>
     Jeu du pendu
 </h1>
@@ -49,7 +56,7 @@ if (!empty($_POST["letter"])) {
 
     if (Utils::win($_SESSION["letters"], $_SESSION["mot"])) {
         // win
-        App::getDatabase()->query("INSERT INTO parties (id_partie, mots, erreurs, result) VALUES (1, '" . $_SESSION['mot'] . "', '" . $_SESSION["try"] . "', 'win');",  Config::$PATH_MODELS."Mots");
+        App::getDatabase()->query("INSERT INTO parties (id_partie, mots, erreurs, result) VALUES (1, '" . $_SESSION['mot'] . "', '" . $_SESSION["try"] . "', 'win');", "Mot");
         echo '<div class="win">
                 <img src="./assets/win.jpg" />
                 <p> YOU WON </p>

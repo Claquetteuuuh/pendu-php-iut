@@ -18,7 +18,7 @@
         static function random_word_db($db){
     
             $request = 'SELECT valeur FROM mots';
-            $objects = $db->query($request, Config::$PATH_MODELS."Mots");
+            $objects = $db->query($request, "Mot");
         
             $n = random_int(0, sizeof($objects));
             return $objects[$n]->getValeur();

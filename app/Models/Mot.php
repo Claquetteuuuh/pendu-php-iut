@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-class Mots
+class Mot
 {
     private $valeur;
 

@@ -34,7 +34,7 @@ class Database
     public function query($request, $class_name)
     {
         $req = $this->getPDO()->query($request);
-        $data = $req->fetchAll(PDO::FETCH_CLASS, $class_name);
+        $data = $req->fetchAll(PDO::FETCH_CLASS, Config::$PATH_MODELS . $class_name);
 
         return $data;
     }
