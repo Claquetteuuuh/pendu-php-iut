@@ -73,8 +73,9 @@ if (!empty($_POST["letter"])) {
     <div class="left">
         <form action="<?= Config::$url . '/public/?p=play' ?>" method="POST">
             <p>Choisir une lettre</p>
-            <input placeholder="A" name="letter" type="text" maxlength="1">
+            <input autofocus placeholder="A" name="letter" type="text" maxlength="1">
             <input type="submit" value="Confirmer">
+            <p ><?php echo implode("-", str_split($_SESSION['letters'])) ?></p>
             <p>Plus que
                 <?php echo 12 - $_SESSION["try"]; ?> essai
             </p>

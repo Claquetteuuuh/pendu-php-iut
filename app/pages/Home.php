@@ -45,18 +45,29 @@ use App\config;
     ?>
     <?php
     if (isset($_GET["username"])) {
-        if(isset($_SESSION["username"])){
+        if (isset($_SESSION["username"])) {
             if ($_GET["username"] == $_SESSION["username"]) {
-                echo `
-                    <a href="<?= config::$url . '/public/?p=play' ?>" class="play"> <span>
+                $url = config::$url . "/public/?p=play";
+                echo "
+                    <a href='$url' class='play'> <span>
                         <p>&#43;</p>
                         </span>
                         <p>Play</p>
                         <p></p>
                     </a>
-                    `;
+                    ";
             }
         }
+    } else if (isset($_SESSION["username"])) {
+        $url = config::$url . "/public/?p=play";
+        echo "
+            <a href='$url' class='play'> <span>
+                <p>&#43;</p>
+                </span>
+                <p>Play</p>
+                <p></p>
+            </a>
+        ";
     }
     ?>
 
