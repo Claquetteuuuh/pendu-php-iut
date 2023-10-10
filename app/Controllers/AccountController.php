@@ -2,9 +2,11 @@
 
 namespace App\Controllers;
 
+use App;
 use App\config;
 use App\Controller\Controllers;
 use App\Models\Account;
+use App\Models\ClassementBubble;
 
 class AccountController extends AppController
 {
@@ -73,5 +75,10 @@ class AccountController extends AppController
             unset($_SESSION["mot"]);
         }
         header("Location: " . Config::$url . "/public/");
+    }
+
+    public function classement(){
+        $bubbles = App::getDatabase()->query("SELECT username1 AS joueur, COUNT(*) AS victoires FROM parties WHERE result = 'win' GROUP BY username1 ORDER BY victoires DESC LIMIT 10;", "ClassementBubble");
+        $this->render("classement", $bubbles);
     }
 }

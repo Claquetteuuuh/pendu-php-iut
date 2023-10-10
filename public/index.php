@@ -37,6 +37,10 @@ else if($p === "logout"){
     $controller = new \App\Controllers\AccountController;
     $controller->logout();
 }
+else if($p === "classement"){
+    $controller = new \App\Controllers\AccountController;
+    $controller->classement();
+}
 else{
     $controller = new \App\Controllers\PartieController;
     $controller->index();
