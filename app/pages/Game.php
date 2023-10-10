@@ -26,12 +26,12 @@ if (!isset($_SESSION["mot"]) || $_SESSION["win"] == true) {
         unset($_SESSION["try"]);
         unset($_SESSION["win"]);
         unset($_SESSION["mot"]);
-        header("Location: " . Config::$url . "/public/?p=play");
+        header("Location: " . Config::$url . "/public/?p=home");
         exit();
     }
 }
 
-echo $_SESSION["mot"];
+// echo $_SESSION["mot"];
 $rendered = Utils::render_word($_SESSION["mot"], $_SESSION["letters"]);
 
 if (!empty($_POST["letter"])) {
