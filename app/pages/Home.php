@@ -8,6 +8,10 @@ use App\config;
     <link rel="stylesheet" href="<?= config::$PATH_PUBLIC . 'css/home.css' ?>">
 </head>
 
+<a href="<?= Config::$url . '/public/?p=logout' ?>" class="logout">
+    <img src="<?= Config::$PATH_PUBLIC . 'assets/log-out-outline.svg' ?>" alt="home ouline" height=50>
+</a>
+
 <div class="partie-container">
     <h1>Historique</h1>
     <?php
@@ -35,6 +39,11 @@ use App\config;
     }
 
     ?>
-    <a href="<?= config::$url . '/public/?p=play' ?>" class="play"> <span><p>&#43;</p></span> <p>Play</p> <p></p></a>
+    <a href="<?= config::$url . '/public/?p=play' ?>" class="play"> <span>
+            <p>&#43;</p>
+        </span>
+        <p>Play</p>
+        <p></p>
+    </a>
 
 </div>

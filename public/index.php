@@ -21,17 +21,25 @@ if($p === "home"){
     $controller = new \App\Controllers\PartieController;
     $controller->index();
 }
-if($p === "login"){
+else if($p === "login"){
     $controller = new \App\Controllers\AccountController;
     $controller->login();
 }
-if($p === "signup"){
+else if($p === "signup"){
     $controller = new \App\Controllers\AccountController;
     $controller->signup();
 }
-if($p === "play"){
+else if($p === "play"){
     $controller = new \App\Controllers\PartieController;
     $controller->play();
+}
+else if($p === "logout"){
+    $controller = new \App\Controllers\AccountController;
+    $controller->logout();
+}
+else{
+    $controller = new \App\Controllers\PartieController;
+    $controller->index();
 }
 $content = ob_get_clean();
 

@@ -52,7 +52,6 @@ if (!empty($_POST["letter"])) {
 </head>
 <a class="menu" href="<?= Config::$url . '/public/?p=home' ?>">
     <img src="<?= Config::$PATH_PUBLIC . 'assets/home-outline.svg' ?>" alt="home ouline" height=50>
-
 </a>
 <h1>
     Jeu du pendu
