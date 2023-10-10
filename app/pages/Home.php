@@ -4,6 +4,7 @@ use App\config;
 ?>
 
 <head>
+    <link rel="stylesheet" href="<?= config::$PATH_PUBLIC . 'css/global.css' ?>">
     <link rel="stylesheet" href="<?= config::$PATH_PUBLIC . 'css/home.css' ?>">
 </head>
 
@@ -34,6 +35,6 @@ use App\config;
     }
 
     ?>
-    <a href="<?= config::$url . '/public/?p=play' ?>" class="play"> <span><p>&#43;</p></span> <p>New game</p> <p></p></a>
+    <a href="<?= config::$url . '/public/?p=play' ?>" class="play"> <span><p>&#43;</p></span> <p>Play</p> <p></p></a>
 
 </div>

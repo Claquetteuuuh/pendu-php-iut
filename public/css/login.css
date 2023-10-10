@@ -1,15 +1,4 @@
-body {
-  background-image: linear-gradient(
-    170deg,
-    hsl(285deg 100% 70%) 0%,
-    hsl(247deg 100% 75%) 57%,
-    hsl(214deg 99% 61%) 100%
-  );
-  background-repeat: no-repeat;
-  min-height: 100vh;
-  width: 100%;
-  position: relative;
-}
+
 
 .form-container {
   min-height: 60%;

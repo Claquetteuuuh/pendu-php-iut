@@ -22,10 +22,10 @@ class Account{
     }
 
     /**
-    * @return Parties[] 
+    * @return Partie[] 
     */
     public function getParties(): array{
-        $parties = App::getDatabase()->query("SELECT * FROM Parties WHERE username1='".$this->getUsername()."' OR username2='". $this->getUsername() . "'", "Partie");
+        $parties = App::getDatabase()->query("SELECT * FROM Parties WHERE username1='".$this->getUsername()."' OR username2='". $this->getUsername() . "' ORDER BY erreurs ASC", "Partie");
         return $parties;
     }
 

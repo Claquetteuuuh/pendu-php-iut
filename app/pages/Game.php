@@ -22,7 +22,10 @@ if (!isset($_SESSION["mot"]) || $_SESSION["win"] == true) {
         // loose
         App::getDatabase()->query("INSERT INTO parties (mots, erreurs, result, username1) VALUES ('" . $_SESSION['mot'] . "', '" . $_SESSION["try"] . "', 'loose', '" . $_SESSION["username"] . "');", "Mot");
 
-        session_destroy();
+        unset($_SESSION["letters"]);
+        unset($_SESSION["try"]);
+        unset($_SESSION["win"]);
+        unset($_SESSION["mot"]);
         header("Location: " . Config::$url . "/public/?p=play");
         exit();
     }
@@ -47,7 +50,10 @@ if (!empty($_POST["letter"])) {
 <head>
     <link rel="stylesheet" href="<?= Config::$PATH_PUBLIC . 'css/game.css' ?>">
 </head>
+<a class="menu" href="<?= Config::$url . '/public/?p=home' ?>">
+    <img src="<?= Config::$PATH_PUBLIC . 'assets/home-outline.svg' ?>" alt="home ouline" height=50>
 
+</a>
 <h1>
     Jeu du pendu
 </h1>
