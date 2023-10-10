@@ -6,7 +6,7 @@ use \App\Config;
 ?>
 
 <head>
-    <link rel="stylesheet" href="<?= Config::$PATH_PUBLIC.'/css/login.css' ?>">
+    <link rel="stylesheet" href="<?= Config::$PATH_PUBLIC.'css/login.css' ?>">
     <title>Pendu | Signup</title>
 </head>
 

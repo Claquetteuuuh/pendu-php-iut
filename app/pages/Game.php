@@ -3,8 +3,8 @@
 use \App\Utils;
 use \App\Config;
 
-if(!isset($_SESSION["username"])){
-    header("Location: ". Config::$url. "/public/?p=login");
+if (!isset($_SESSION["username"])) {
+    header("Location: " . Config::$url . "/public/?p=login");
 }
 
 
@@ -20,10 +20,10 @@ if (!isset($_SESSION["mot"]) || $_SESSION["win"] == true) {
 } else {
     if (12 - $_SESSION["try"] < 1) {
         // loose
-        App::getDatabase()->query("INSERT INTO parties (mots, erreurs, result, username1) VALUES ('" . $_SESSION['mot'] . "', '" . $_SESSION["try"] . "', 'loose', '". $_SESSION["username"] . "');", "Mot");
+        App::getDatabase()->query("INSERT INTO parties (mots, erreurs, result, username1) VALUES ('" . $_SESSION['mot'] . "', '" . $_SESSION["try"] . "', 'loose', '" . $_SESSION["username"] . "');", "Mot");
 
         session_destroy();
-        header("Location: ". Config::$url. "/public/?p=play");
+        header("Location: " . Config::$url . "/public/?p=play");
         exit();
     }
 }
@@ -45,7 +45,7 @@ if (!empty($_POST["letter"])) {
 ?>
 
 <head>
-    <link rel="stylesheet" href="/pendu-php-iut/public/css/home.css">
+    <link rel="stylesheet" href="<?= Config::$PATH_PUBLIC . 'css/game.css' ?>">
 </head>
 
 <h1>
@@ -60,7 +60,7 @@ if (!empty($_POST["letter"])) {
         echo '<div class="win">
                 <img src="./assets/win.jpg" />
                 <p> YOU WON </p>
-                <a href="./">REJOUER</a>
+                <a href="./">MENU</a>
                 </div>
             ';
         $_SESSION["win"] = true;
@@ -68,7 +68,7 @@ if (!empty($_POST["letter"])) {
 
     ?>
     <div class="left">
-        <form action="<?= Config::$url. '/public/?p=play'?>" method="POST">
+        <form action="<?= Config::$url . '/public/?p=play' ?>" method="POST">
             <p>Choisir une lettre</p>
             <input placeholder="A" name="letter" type="text" maxlength="1">
             <input type="submit" value="Confirmer">

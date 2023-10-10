@@ -35,7 +35,7 @@ class AccountController extends AppController
                 }
             }
         }
-        $this->render("login");
+        $this->render("login", []);
     }
 
     public function signup()
@@ -60,7 +60,7 @@ class AccountController extends AppController
             }
         }
 
-        $this->render("signup");
+        $this->render("signup", []);
     }
 
     public function logout()
