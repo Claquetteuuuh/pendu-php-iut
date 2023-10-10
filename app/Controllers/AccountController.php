@@ -20,19 +20,19 @@ class AccountController extends AppController
                 unset($_SESSION["username"]);
                 header("Location: " . Config::$url . "/public/");
             }
-        }else{
+        } else {
             if (isset($_POST["username"]) && isset($_POST["password"])) {
                 $account = Account::findOne(trim(strtolower($_POST["username"])));
-                if(sizeof($account) != 0){
-                    if(Account::checkPassword($_POST["password"], $account[0]->getPassword())){
-                        $_SESSION["username"] = $account[0]->getUsername(); 
-                    }else{
+                if (sizeof($account) != 0) {
+                    if (Account::checkPassword($_POST["password"], $account[0]->getPassword())) {
+                        $_SESSION["username"] = $account[0]->getUsername();
+                    } else {
                         echo "<script>alert('Bad password')</script>";
                     }
                     if (isset($_SESSION["username"])) {
                         header("Location: " . Config::$url . "/public/");
                     }
-                }else{
+                } else {
                     echo "<script>alert('This account doesn\'t exists')</script>";
                 }
             }
@@ -51,8 +51,13 @@ class AccountController extends AppController
             if (isset($_POST["username"]) && isset($_POST["password"]) && isset($_POST["password2"])) {
                 // verif meme password
                 if ($_POST["password"] == $_POST["password2"]) {
-                    $account = Account::createAccount(trim(strtolower($_POST["username"])), $_POST["password"]);
-                    $_SESSION["username"] = $account[0]->getUsername();
+                    // verif account exist pas
+                    if (sizeof(Account::findOne($_POST["username"])) == 0) {
+                        $account = Account::createAccount(trim(strtolower($_POST["username"])), $_POST["password"]);
+                        $_SESSION["username"] = $account[0]->getUsername();
+                    } else {
+                        echo "<script>alert('Le compte existe deja')</script>";
+                    }
                 } else {
                     echo "<script>alert('Le mot de passe n\'est pas le meme')</script>";
                 }
@@ -77,7 +82,8 @@ class AccountController extends AppController
         header("Location: " . Config::$url . "/public/");
     }
 
-    public function classement(){
+    public function classement()
+    {
         $bubbles = App::getDatabase()->query("SELECT username1 AS joueur, COUNT(*) AS victoires FROM `parties` WHERE result = 'win' GROUP BY username1 ORDER BY victoires DESC LIMIT 5;", "ClassementBubble");
         $this->render("classement", $bubbles);
     }
