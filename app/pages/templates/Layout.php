@@ -57,8 +57,50 @@ use App\config;
                     hsl(222deg 100% 94%) 100%);
             border-radius: 10px;
         }
+
+        .logout-icon {
+            position: absolute;
+            left: 0;
+            top: 0;
+            margin: 10px;
+        }
+
+        .menu-icon {
+            position: absolute;
+            left: 60px;
+            top: 0;
+            margin: 10px;
+            
+        }
+        .classement-icon{
+            position: absolute;
+            left: 125px;
+            top: 0;
+            margin: 10px;
+        }
+        .menu-icon img{
+            height: 46px;
+        } 
+        .logout-icon img{
+            height: 50px;
+        } 
+        .classement-icon img{
+            height: 42px;
+        }
+    
     </style>
     <?= $content; ?>
+
+
+    <a href="<?= Config::$url . '/public/?p=logout' ?>" class="logout-icon">
+        <img src="<?= Config::$PATH_PUBLIC . 'assets/log-out-outline.svg' ?>" alt="logout svg">
+    </a>
+    <a class="menu-icon" href="<?= Config::$url . '/public/?p=home' ?>">
+        <img src="<?= Config::$PATH_PUBLIC . 'assets/home-outline.svg' ?>" alt="home svg" >
+    </a>
+    <a class="classement-icon" href="<?= Config::$url . '/public/?p=classement' ?>">
+        <img src="<?= Config::$PATH_PUBLIC . 'assets/rank.svg' ?>" alt="rank svg">
+    </a>
 </body>
 
 </html>

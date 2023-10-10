@@ -8,9 +8,6 @@ use App\config;
     <link rel="stylesheet" href="<?= config::$PATH_PUBLIC . 'css/home.css' ?>">
 </head>
 
-<a href="<?= Config::$url . '/public/?p=logout' ?>" class="logout">
-    <img src="<?= Config::$PATH_PUBLIC . 'assets/log-out-outline.svg' ?>" alt="home ouline" height=50>
-</a>
 
 <div class="partie-container">
     <h1>Historique</h1>
@@ -39,11 +36,21 @@ use App\config;
     }
 
     ?>
-    <a href="<?= config::$url . '/public/?p=play' ?>" class="play"> <span>
-            <p>&#43;</p>
-        </span>
-        <p>Play</p>
-        <p></p>
-    </a>
+    <?php
+    if (isset($_GET["username"])) {
+        if(isset($_SESSION["username"])){
+            if ($_GET["username"] == $_SESSION["username"]) {
+                echo `
+                    <a href="<?= config::$url . '/public/?p=play' ?>" class="play"> <span>
+                        <p>&#43;</p>
+                        </span>
+                        <p>Play</p>
+                        <p></p>
+                    </a>
+                    `;
+            }
+        }
+    }
+    ?>
 
 </div>

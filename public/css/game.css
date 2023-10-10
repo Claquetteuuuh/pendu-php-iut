@@ -5,13 +5,6 @@ h1 {
     color: white;
     font-weight: 500;
 }
-.menu{
-    position: absolute;
-    left: 0;
-    top: 0;
-    margin: 10px;
-    left: 10px;
-}
 
 .container {
     margin-top: 50px;

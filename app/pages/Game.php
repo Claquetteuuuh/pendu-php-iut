@@ -50,9 +50,7 @@ if (!empty($_POST["letter"])) {
 <head>
     <link rel="stylesheet" href="<?= Config::$PATH_PUBLIC . 'css/game.css' ?>">
 </head>
-<a class="menu" href="<?= Config::$url . '/public/?p=home' ?>">
-    <img src="<?= Config::$PATH_PUBLIC . 'assets/home-outline.svg' ?>" alt="home ouline" height=50>
-</a>
+
 <h1>
     Jeu du pendu
 </h1>
