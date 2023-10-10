@@ -31,7 +31,7 @@ CREATE TABLE `accounts` (
   `id_account` int NOT NULL,
   `username` varchar(255) DEFAULT NULL,
   `password` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Déchargement des données de la table `accounts`
@@ -54,7 +54,7 @@ INSERT INTO `accounts` (`id_account`, `username`, `password`) VALUES
 CREATE TABLE `mots` (
   `id_mot` int NOT NULL,
   `valeur` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Déchargement des données de la table `mots`
@@ -174,8 +174,8 @@ CREATE TABLE `parties` (
   `mots` varchar(255) DEFAULT NULL,
   `result` varchar(255) DEFAULT NULL,
   `username1` varchar(255) NOT NULL,
-  `username2` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `username2` varchar(255) CHARACTER SET utf8mb4 DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ;
 
 --
 -- Déchargement des données de la table `parties`

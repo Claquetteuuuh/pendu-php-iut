@@ -11,7 +11,7 @@ class PartieController extends appController
     {
         if (isset($_GET["username"])) {
             $username = $_GET["username"];
-            $accounts = App::getDatabase()->query("SELECT * FROM Accounts WHERE username='$username'", "Account");
+            $accounts = App::getDatabase()->query("SELECT * FROM `accounts` WHERE username='$username'", "Account");
             if (sizeof($accounts) != 0) {
                 $parties = $accounts[0]->getParties();
                 $this->render("home", $parties);
@@ -20,7 +20,7 @@ class PartieController extends appController
         } else {
             if (isset($_SESSION["username"])) {
                 $username = $_SESSION["username"];
-                $accounts = App::getDatabase()->query("SELECT * FROM Accounts WHERE username='$username'", "Account");
+                $accounts = App::getDatabase()->query("SELECT * FROM `accounts` WHERE username='$username'", "Account");
                 if (sizeof($accounts) != 0) {
                     $parties = $accounts[0]->getParties();
                     $this->render("home", $parties);
@@ -36,7 +36,7 @@ class PartieController extends appController
     {
         if (isset($_SESSION["username"])) {
             $username = $_SESSION["username"];
-            $accounts = App::getDatabase()->query("SELECT * FROM Accounts WHERE username='$username'", "Account");
+            $accounts = App::getDatabase()->query("SELECT * FROM `accounts` WHERE username='$username'", "Account");
             if (sizeof($accounts) != 0) {
                 $parties = $accounts[0]->getParties();
                 $this->render("game", $parties);

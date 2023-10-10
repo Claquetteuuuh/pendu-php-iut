@@ -5,14 +5,13 @@ namespace App\Models;
 use App;
 
 class Account{
+    private $id_account;
     private $username; 
     private $password;
 
-    public function __get($key){
-        $method = 'get' . ucfirst($key);
-        $this->$method();
+    public function getId_account(){
+        return $this->id_account;
     }
-
     public function getUsername(){
         return $this->username;
     }
@@ -25,7 +24,7 @@ class Account{
     * @return Partie[] 
     */
     public function getParties(): array{
-        $parties = App::getDatabase()->query("SELECT * FROM Parties WHERE username1='".$this->getUsername()."' OR username2='". $this->getUsername() . "' ORDER BY erreurs ASC", "Partie");
+        $parties = App::getDatabase()->query("SELECT * FROM `parties` WHERE username1='".$this->getUsername()."' OR username2='". $this->getUsername() . "' ORDER BY erreurs ASC", "Partie");
         return $parties;
     }
 

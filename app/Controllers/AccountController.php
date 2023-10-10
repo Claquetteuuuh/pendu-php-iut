@@ -78,7 +78,7 @@ class AccountController extends AppController
     }
 
     public function classement(){
-        $bubbles = App::getDatabase()->query("SELECT username1 AS joueur, COUNT(*) AS victoires FROM parties WHERE result = 'win' GROUP BY username1 ORDER BY victoires DESC LIMIT 5;", "ClassementBubble");
+        $bubbles = App::getDatabase()->query("SELECT username1 AS joueur, COUNT(*) AS victoires FROM `parties` WHERE result = 'win' GROUP BY username1 ORDER BY victoires DESC LIMIT 5;", "ClassementBubble");
         $this->render("classement", $bubbles);
     }
 }

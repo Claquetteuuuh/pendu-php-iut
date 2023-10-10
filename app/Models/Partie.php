@@ -12,10 +12,6 @@ class Partie{
     private $username1;
     private $username2;
 
-    public function __get($key){
-        $method = 'get' . ucfirst($key);
-        $this->$method();
-    }
 
     public function getId_partie(){
         return $this->id_partie;
