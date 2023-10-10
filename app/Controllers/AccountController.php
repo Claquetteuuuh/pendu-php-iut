@@ -67,6 +67,10 @@ class AccountController extends AppController
     {
         if (isset($_SESSION["username"])) {
             unset($_SESSION["username"]);
+            unset($_SESSION["letters"]);
+            unset($_SESSION["try"]);
+            unset($_SESSION["win"]);
+            unset($_SESSION["mot"]);
         }
         header("Location: " . Config::$url . "/public/");
     }
