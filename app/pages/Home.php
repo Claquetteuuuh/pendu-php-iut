@@ -11,6 +11,13 @@ use App\config;
 
 <div class="partie-container">
     <h1>Historique</h1>
+
+    <div class="partie-bubble">
+        <p>Id Partie</p>
+        <p>Mot</p>
+        <p>Erreurs</p>
+        <p>Status</p>
+    </div>
     <?php
 
     foreach ($vars as $key => $value) {

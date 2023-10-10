@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost:3306
--- Généré le : mar. 10 oct. 2023 à 07:32
+-- Généré le : mar. 10 oct. 2023 à 11:47
 -- Version du serveur : 8.0.30
 -- Version de PHP : 8.1.10
 
@@ -38,7 +38,12 @@ CREATE TABLE `accounts` (
 --
 
 INSERT INTO `accounts` (`id_account`, `username`, `password`) VALUES
-(1, 'quoicoubeh', '050acc593fa5a1cd4944beaa0ff8c9bb002024df9bf17b807f7ce486c4c96961');
+(1, 'quoicoubeh', '050acc593fa5a1cd4944beaa0ff8c9bb002024df9bf17b807f7ce486c4c96961'),
+(2, 'charles', '937e092e49a09116e1c3d92a76b755796b6d5e6b3a6ffe49d029b57178e92233'),
+(3, 'yo', 'c278ec5a69c34aace42773e41b1163e6ce40c906f2a14f807d39d1b2a1c2dff5'),
+(4, 'anis', 'bdcc3a21f98c49b4b7fbe9066b855f6d0a205f144a4dd4ec525ca742fa320553'),
+(5, 'jasser', '26429a356b1d25b7d57c0f9a6d5fed8a290cb42374185887dcd2874548df0779'),
+(7, 'quoicoubeh2', 'f2d81a260dea8a100dd517984e53c56a7523d96942a834b9cdc249bd4e8c7aa9');
 
 -- --------------------------------------------------------
 
@@ -184,7 +189,13 @@ INSERT INTO `parties` (`id_partie`, `erreurs`, `mots`, `result`, `username1`, `u
 (5, 0, 'Rever', 'win', 'quoicoubeh', NULL),
 (6, 0, 'Danser', 'win', 'quoicoubeh', NULL),
 (7, 1, 'Enfant', 'win', 'quoicoubeh', NULL),
-(8, 12, 'Parent', 'loose', 'quoicoubeh', NULL);
+(8, 12, 'Parent', 'loose', 'quoicoubeh', NULL),
+(9, 1, 'Colere', 'win', 'charles', NULL),
+(10, 12, 'Chaise', 'loose', 'yo', NULL),
+(11, 0, 'Apprendre', 'win', 'yo', NULL),
+(12, 6, 'Montagne', 'win', 'anis', NULL),
+(13, 6, 'Frere', 'win', 'jasser', NULL),
+(14, 2, 'Telephone', 'win', 'quoicoubeh2', NULL);
 
 --
 -- Index pour les tables déchargées
@@ -217,7 +228,7 @@ ALTER TABLE `parties`
 -- AUTO_INCREMENT pour la table `accounts`
 --
 ALTER TABLE `accounts`
-  MODIFY `id_account` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_account` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT pour la table `mots`
@@ -229,7 +240,7 @@ ALTER TABLE `mots`
 -- AUTO_INCREMENT pour la table `parties`
 --
 ALTER TABLE `parties`
-  MODIFY `id_partie` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id_partie` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
