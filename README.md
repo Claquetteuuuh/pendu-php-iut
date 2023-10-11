@@ -8,3 +8,6 @@
 - executer `docker-compose up -d`
 - dans le fichier config mettre $url = 'http://localhost'
 - dans le fichier config mettre $host = 'db'
+
+### MacOs
+- modifier image: `mysql:5.7`, mettre `mariadb:10.5.8`
