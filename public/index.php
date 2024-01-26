@@ -2,7 +2,7 @@
 
 require ("../app/Autoloader.php");
 use \App\Autoloader as Autoloader;
-use App\config;
+use App\Config;
 
 Autoloader::register();
 

@@ -1,5 +1,5 @@
 <?php
-use App\config;
+use App\Config;
 
 ?>
 <head>

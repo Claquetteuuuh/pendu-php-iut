@@ -2,7 +2,7 @@
 
 namespace App\Controllers;
 
-use App\config;
+use App\Config;
 
 class Controller{
     protected $view_path; 

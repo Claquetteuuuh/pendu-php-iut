@@ -2,7 +2,7 @@
 
 namespace App\Controllers;
 
-use App\config;
+use App\Config;
 use App\Controller\Controllers;
 
 class appController extends Controller{

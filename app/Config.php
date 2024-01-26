@@ -2,7 +2,7 @@
 
     namespace App;
 
-    class config {
+    class Config {
         static $filename = "./assets/word_list.txt";
         static $host = 'db';
         static $db = 'pendu';

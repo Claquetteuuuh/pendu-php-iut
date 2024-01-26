@@ -3,7 +3,7 @@
 namespace App\Controllers;
 
 use App;
-use App\config;
+use App\Config;
 
 class PartieController extends appController
 {

@@ -3,7 +3,7 @@
 namespace App\Controllers;
 
 use App;
-use App\config;
+use App\Config;
 use App\Controller\Controllers;
 use App\Models\Account;
 use App\Models\ClassementBubble;

@@ -2,7 +2,7 @@
 <html lang="en">
 <?php
 
-use App\config;
+use App\Config;
 
 ?>
 
